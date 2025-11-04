@@ -1,4 +1,4 @@
-/* Global */
+/* Reset / Global */
 body {
   font-family: 'Inter', sans-serif;
   background-color: #f5f6fa;
@@ -6,6 +6,76 @@ body {
   padding: 20px;
   color: #222;
   min-height: 100vh;
+}
+
+/* Topbar */
+.topbar {
+  background: white;
+  border-bottom: 1px solid #eee;
+  padding: 10px 20px;
+}
+.topbar-inner {
+
+
+.login-card form label {
+  display: inline-block;
+  width: 140px;
+  margin-bottom: 0; /* spacing handled by input */
+  text-align: right;
+  padding-right: 12px;
+  vertical-align: middle;
+  font-size: 15px;
+}
+
+.login-card form input[type="email"],
+.login-card form input[type="password"],
+.login-card form input[type="text"] {
+  display: inline-block;
+  width: calc(100% - 160px); /* account for label width + gap */
+  vertical-align: middle;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 520px) {
+  .login-card form label,
+  .login-card form input[type="email"],
+  .login-card form input[type="password"],
+  .login-card form input[type="text"] {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+  .login-card {
+    width: auto;
+    padding: 30px 20px;
+  }
+}
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.topbar-left {
+  font-weight: 600;
+  color: #333;
+}
+.topbar-right a {
+  color: #4d7cff;
+  text-decoration: none;
+  margin-left: 8px;
+  font-weight: 600;
+}
+.logout-btn {
+  background: #4fc5bb;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+}
+.logout-btn:hover {
+  background: #ff4b4b;
 }
 
 /* Center the login box */
@@ -25,42 +95,6 @@ body {
   text-align: left;
   width: 380px;
   border: 1px solid #eee;
-}
-
-/* Logo */
-.login-logo {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.login-logo img {
-  height: 40px;
-}
-
-/* Headline */
-.login-card h2 {
-  text-align: left;
-  margin-bottom: 25px;
-  color: #222;
-  font-weight: 600;
-}
-
-/* Labels & Inputs */
-label {
-  display: block;
-  font-weight: 500;
-  margin-bottom: 6px;
-  font-size: 15px;
-}
-
-input {
-  width: 100%;
-  padding: 11px;
-  margin-bottom: 15px;
-  border: 1px solid #cfd3d9;
-  border-radius: 6px;
-  font-size: 15px;
-  transition: all 0.2s;
 }
 
 input:focus {
@@ -197,22 +231,8 @@ input:focus {
   right: 0;
 }
 
-/* Proton login button */
-.proton-login {
-  width: 100%;
-  background: transparent;
-  color: #6a4fff;
-  padding: 12px;
-  border: 1.5px solid #6a4fff;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  font-weight: 600;
-}
 
-.proton-login:hover {
-  background: #f3f0ff;
-}
+
 
 /* Sign-up text */
 .signup-text {
@@ -232,24 +252,90 @@ input:focus {
   text-decoration: underline;
 }
 
-/* Flash messages */
+/* Flash messages - appears below topbar and auto-fades */
 .flash {
-  position: absolute;
-  top: 20px;
-  width: 90%;
-  max-width: 400px;
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  max-width: 600px;
+  min-width: 280px;
   text-align: center;
-  padding: 10px;
-  border-radius: 6px;
-  margin: auto;
+  padding: 12px 24px;
+  border-radius: 8px;
+  margin: 0;
+  z-index: 2000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  animation: flashFadeIn 0.3s ease-out, flashFadeOut 0.5s ease-in 2.5s forwards;
 }
 
 .flash.success {
   background: #e6f9e6;
   color: #2b7a2b;
+  border: 1px solid #a3e4a3;
 }
 
 .flash.error {
   background: #fdeaea;
   color: #b94a48;
+  border: 1px solid #f5c2c2;
+}
+
+@keyframes flashFadeIn {
+  from { 
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes flashFadeOut {
+  from { 
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  to { 
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+}
+
+/* Admin/dashboard header tweaks */
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+}
+.dashboard-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.dashboard-header-left h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+.dashboard-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.dashboard-header-right h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #666;
+}
+
+/* Logo sizing: ensure logo is not oversized */
+.login-logo img {
+  height: 40px;
+  width: auto;
+  display: block;
 }

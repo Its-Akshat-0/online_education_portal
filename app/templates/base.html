@@ -6,6 +6,22 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      {% if 'admin' in request.endpoint %}
+        {# Don't show login/signup for admin pages #}
+      {% elif user %}
+        <div class="topbar-left">Welcome, {{ user.username }}!</div>
+        <div class="topbar-right"><a href="{{ url_for('auth.logout') }}" class="logout-btn">Logout</a></div>
+      {% else %}
+        <div class="topbar-right">
+          <a href="{{ url_for('auth.login') }}">Login</a>
+          &nbsp;|&nbsp;
+          <a href="{{ url_for('auth.register') }}">Sign up</a>
+        </div>
+      {% endif %}
+    </div>
+  </header>
   {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
       {% for category, msg in messages %}

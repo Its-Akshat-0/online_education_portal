@@ -4,10 +4,16 @@
 {% block content %}
 <div class="admin-dashboard">
   <div class="dashboard-header">
-    <div class="login-logo">
-      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Online Education logo">
+    <div class="dashboard-header-left">
+      <div class="login-logo">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Online Education logo">
+      </div>
+      <h1>Online Education System</h1>
     </div>
-    <h2>Admin Dashboard</h2>
+    <div class="dashboard-header-right">
+      <h2>Admin Dashboard</h2>
+      <a href="{{ url_for('auth.logout') }}" class="logout-btn">Logout</a>
+    </div>
   </div>
 
   <div class="dashboard-section">
