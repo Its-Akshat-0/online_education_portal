@@ -3,26 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>{% block title %}{% endblock %}</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-
-  <nav>
-    {% if 'user_id' in session %}
-      {% if session.get('is_admin') %}
-        <a href="{{ url_for('auth.admin_dashboard') }}">Admin Dashboard</a> |
-      {% else %}
-        <a href="{{ url_for('auth.home') }}">My Dashboard</a> |
-      {% endif %}
-      <a href="{{ url_for('auth.logout') }}">Logout</a>
-    {% else %}
-      <a href="{{ url_for('auth.login') }}">Login</a> |
-      <a href="{{ url_for('auth.register') }}">Register</a>
-    {% endif %}
-  </nav>
-
-  <hr>
-
   {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
       {% for category, msg in messages %}

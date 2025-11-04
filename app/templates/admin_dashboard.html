@@ -2,11 +2,18 @@
 {% block title %}Admin Dashboard{% endblock %}
 
 {% block content %}
-<div class="container">
-  <h2>Admin Dashboard</h2>
+<div class="admin-dashboard">
+  <div class="dashboard-header">
+    <div class="login-logo">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Online Education logo">
+    </div>
+    <h2>Admin Dashboard</h2>
+  </div>
 
-  <h3>All Users</h3>
-  <table border="1" cellpadding="5">
+  <div class="dashboard-section">
+    <h3>All Users</h3>
+    <div class="table-container">
+      <table>
     <tr>
       <th>ID</th>
       <th>Username</th>
