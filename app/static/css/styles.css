@@ -1,0 +1,177 @@
+/* --------------------------
+   General Layout
+---------------------------*/
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background: linear-gradient(120deg, #e3f2fd, #f3e5f5);
+  color: #333;
+  min-height: 100vh;
+}
+
+/* --------------------------
+   Navigation Bar
+---------------------------*/
+nav {
+  background: linear-gradient(90deg, #1976d2, #42a5f5);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  margin: 0 10px;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #ffe082;
+}
+
+/* --------------------------
+   Container and Headings
+---------------------------*/
+.container {
+  width: 90%;
+  max-width: 900px;
+  background: white;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.container:hover {
+  transform: scale(1.01);
+}
+
+h2 {
+  text-align: center;
+  color: #1565c0;
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  color: #512da8;
+  border-bottom: 2px solid #d1c4e9;
+  padding-bottom: 5px;
+}
+
+/* --------------------------
+   Forms and Inputs
+---------------------------*/
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+  font-weight: 600;
+  color: #424242;
+}
+
+input {
+  padding: 10px;
+  margin-top: 5px;
+  border: 2px solid #bbdefb;
+  border-radius: 8px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+  border-color: #42a5f5;
+  box-shadow: 0 0 5px rgba(33,150,243,0.5);
+  outline: none;
+}
+
+/* --------------------------
+   Buttons
+---------------------------*/
+button, .btn {
+  background: linear-gradient(90deg, #42a5f5, #5c6bc0);
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  margin-top: 15px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+button:hover, .btn:hover {
+  background: linear-gradient(90deg, #5c6bc0, #42a5f5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* --------------------------
+   Tables
+---------------------------*/
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #2196f3;
+  color: white;
+}
+
+tr:hover {
+  background-color: #e3f2fd;
+  transition: background 0.3s;
+}
+
+/* --------------------------
+   Links and Messages
+---------------------------*/
+a {
+  color: #1565c0;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* --------------------------
+   Responsive Design
+---------------------------*/
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+    padding: 1.5rem;
+  }
+  
+  nav {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Update Profile{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>Update Your Profile</h2>
+  <form method="POST" action="{{ url_for('auth.update_user') }}">
+    <label>Username:</label>
+    <input type="text" name="username" value="{{ user.username }}" required><br><br>
+
+    <label>Email:</label>
+    <input type="email" name="email" value="{{ user.email }}" required><br><br>
+
+    <label>Password:</label>
+    <input type="password" name="password" placeholder="Enter new password (leave blank to keep current)"><br><br>
+
+    <button type="submit">Update</button>
+  </form>
+</div>
+{% endblock %}
